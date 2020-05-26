@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ViewModel.JadwalViewModel>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            Kelas
+        </th>
+        <th>
+            Hari
+        </th>
+
+        <th>
+            Mata Kuliah
+        </th>
+        <th>
+            Dosen
+        </th>
+        
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kelas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hari)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.matkul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dosen)
+                </td>
+                
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+

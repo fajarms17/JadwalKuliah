@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+
+
+<div class="jumbotron" style="background-image:url('/Content/Asset/background.jpg')">
+    <h2>Jadwal Perkuliahan</h2>
+    <p class="lead">Temukan jadwal kuliahmu dalam satu kali klik. </p>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="text" placeholder="Input Kelas / Dosen" class="form-control" id="search" style="display:inline" />
+        <button type="button" id="btn-search" class="btn " style="background-color:white">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+    </div>
+
+</div>
+
+<div class="row" style="margin-top:20px">
+    <div class="col-md-12" id="list-jadwal">
+        
+    </div>
+</div>
+
+
+
+@section Scripts{
+<script type="text/javascript">
+        function GetList() {
+            $.ajax({
+                url: '@Url.Action("Searching","Home")',
+                type: 'get',
+                data: { search: $("#search").val() },
+                success: function (result) {
+                    $("#list-jadwal").html(result);
+                }
+            });
+        }
+
+    $("#btn-search").click(function () {
+        GetList();
+        });
+</script>
+    }
